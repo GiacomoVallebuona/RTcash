@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="780" viewBox="0 0 640 780" fill="none">
+<defs>
+<linearGradient id="body" x1="166" y1="0" x2="452" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#343638"/><stop offset=".12" stop-color="#242527"/><stop offset=".7" stop-color="#191a1c"/><stop offset="1" stop-color="#2c2d30"/></linearGradient>
+<linearGradient id="edge" x1="447" y1="380" x2="510" y2="380" gradientUnits="userSpaceOnUse"><stop stop-color="#151618"/><stop offset="1" stop-color="#08090a"/></linearGradient>
+<linearGradient id="red" x1="173" y1="160" x2="468" y2="185" gradientUnits="userSpaceOnUse"><stop stop-color="#fd3138"/><stop offset=".55" stop-color="#d70d19"/><stop offset="1" stop-color="#8f0410"/></linearGradient>
+<linearGradient id="glass" x1="205" y1="238" x2="408" y2="410" gradientUnits="userSpaceOnUse"><stop stop-color="#232b32"/><stop offset=".6" stop-color="#0e141a"/><stop offset="1" stop-color="#151d24"/></linearGradient>
+<linearGradient id="metal" x1="250" y1="435" x2="360" y2="491" gradientUnits="userSpaceOnUse"><stop stop-color="#74777a"/><stop offset=".35" stop-color="#32363a"/><stop offset="1" stop-color="#191c1f"/></linearGradient>
+<linearGradient id="shelf" x1="200" y1="426" x2="216" y2="502" gradientUnits="userSpaceOnUse"><stop stop-color="#414447"/><stop offset="1" stop-color="#17191b"/></linearGradient>
+<radialGradient id="shadow"><stop stop-color="#000" stop-opacity=".8"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<ellipse cx="328" cy="733" rx="256" ry="40" fill="url(#shadow)"/>
+<path d="M180 108 230 76H470Q484 77 489 97L505 667Q505 688 487 698L455 717 180 686Z" fill="url(#edge)" stroke="#383a3d"/>
+<path d="M177 109 227 78 471 79 449 107Z" fill="#494b4d"/>
+<path d="M177 109H446Q458 109 458 124V697Q458 715 441 715H188Q173 715 173 699V125Q173 112 177 109Z" fill="url(#body)" stroke="#55575a" stroke-width="1.2"/>
+<path d="M179 120H444V691" stroke="#727477" stroke-opacity=".35"/><path d="M458 124 482 104 497 668 470 687Z" fill="#111214"/>
+<path d="M468 163 483 151V240L468 250Z" fill="#202225"/>
+<path d="M173 134H457V203H173Z" fill="url(#red)"/><path d="m458 134 28-19 2 67-30 21Z" fill="#88030b"/><path d="M173 135H457" stroke="#ff7476" stroke-opacity=".8"/>
+<text x="204" y="180" fill="#fff" font-family="Arial,sans-serif" font-size="31" font-weight="700" letter-spacing="2">PULSO</text><text x="354" y="181" fill="#fff" font-family="Arial,sans-serif" font-size="12" letter-spacing="2">ATM</text><circle cx="428" cy="168" r="3" fill="#ffc4c6"/>
+<rect x="188" y="217" width="253" height="216" rx="10" fill="#0a0b0d" stroke="#424448"/><circle cx="315" cy="231" r="4" fill="#303438"/><circle cx="315" cy="231" r="2" fill="#0a1017"/>
+<rect x="203" y="244" width="224" height="168" rx="3" fill="url(#glass)" stroke="#484e52"/>
+<text x="220" y="268" fill="#f5f5f4" font-family="Arial,sans-serif" font-size="8" font-weight="700" letter-spacing="1">PULSO</text><circle cx="410" cy="264" r="2" fill="#88b99e"/>
+<text x="220" y="306" fill="#fff" font-family="Arial,sans-serif" font-size="19" font-weight="600">Hola, estás cerca.</text><text x="220" y="324" fill="#adb7bd" font-family="Arial,sans-serif" font-size="8">¿Qué necesitas hacer hoy?</text>
+<rect x="219" y="342" width="89" height="34" rx="4" fill="#e50914"/><text x="232" y="362" fill="#fff" font-family="Arial,sans-serif" font-size="9">Retirar efectivo</text><rect x="315" y="342" width="95" height="34" rx="4" fill="#283139"/><text x="328" y="362" fill="#e3e7e9" font-family="Arial,sans-serif" font-size="9">Consultar saldo</text><path d="M220 394h42m110 0h37" stroke="#59616a" stroke-width="2"/>
+<path d="M188 435H441L456 498H174Z" fill="url(#shelf)" stroke="#4e5053"/><path d="M174 498H456V514H174Z" fill="#101113" stroke="#2e3032"/>
+<path d="M236 449H318L329 487H226Z" fill="url(#metal)" stroke="#777b7e"/>
+<g fill="#969c9e" stroke="#24282a"><path d="M242 454h15l-1 6h-15Z"/><path d="M264 454h15v6h-15Z"/><path d="M286 454h15l1 6h-15Z"/><path d="M240 464h15l-1 6h-15Z"/><path d="M263 464h16v6h-16Z"/><path d="M287 464h16l1 6h-16Z"/><path d="M237 474h16l-1 6h-16Z"/><path d="M262 474h17v6h-17Z"/><path d="M288 474h17l1 6h-17Z"/></g>
+<path d="M309 455h8l2 6h-8Z" fill="#b43639"/><path d="M312 465h8l2 6h-8Z" fill="#b49a57"/><path d="M315 475h8l2 6h-8Z" fill="#518968"/>
+<rect x="354" y="446" width="68" height="20" rx="4" fill="#15181b" stroke="#5a5e60"/><path d="M361 455h52" stroke="#68b893" stroke-width="3"/><path d="M361 455h52" stroke="#68b893" stroke-width="4" filter="url(#glow)" opacity=".4"/>
+<g stroke="#9ea3a5" stroke-width="1.6"><path d="M376 480q6-7 12 0m-15-4q9-10 18 0m-21-4q12-13 24 0"/></g>
+<rect x="190" y="531" width="251" height="156" rx="5" fill="#202123" stroke="#3b3d40"/><rect x="219" y="548" width="192" height="49" rx="5" fill="#101112" stroke="#45474a"/>
+<path d="M230 563H400" stroke="#651019" stroke-width="9"/><path d="M231 561H399" stroke="#f03b42" stroke-width="3"/><path d="M231 561H399" stroke="#f03b42" stroke-width="4" filter="url(#glow)" opacity=".7"/><path d="M230 569H400L391 582H238Z" fill="#090a0b"/>
+<text x="289" y="615" fill="#929598" font-family="Arial,sans-serif" font-size="7" letter-spacing="2">EFECTIVO</text><circle cx="421" cy="667" r="4" fill="#1a1b1d" stroke="#636568"/><path d="M421 664v6" stroke="#737578"/><text x="207" y="667" fill="#8d9194" font-family="Arial,sans-serif" font-size="9" letter-spacing="2">X1</text>
+<path d="M194 716h241l13 9H184Z" fill="#0a0b0c"/><path d="m473 595 19-10m-19 17 19-10m-19 17 19-10m-19 17 19-10m-19 17 19-10" stroke="#343638" stroke-width="2"/>
+</svg>
