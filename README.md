@@ -24,6 +24,14 @@ Abre `index.html` en un navegador o utiliza una extensión de servidor local en 
 node --test tests/site.test.mjs
 ```
 
+## Despliegue en Vercel
+
+Este repositorio es un sitio estático: sus archivos publicables están en la raíz y no necesita una compilación. El archivo `vercel.json` fija esa raíz como directorio de salida.
+
+Al crear el proyecto en Vercel, selecciona el repositorio `GiacomoVallebuona/RTcash`, la rama `main` y el preset **Other**. Deja el comando de compilación vacío. No hace falta activar una carpeta de salida distinta: la configuración del repositorio utiliza `.`.
+
+Si Vercel muestra “The provided GitHub repository does not contain the requested branch or commit reference”, el código no es la causa: el error ocurre antes de descargarlo. Verifica que la rama sea `main`, y en GitHub revisa que la aplicación Vercel tenga acceso a este repositorio en **Settings → Applications → Vercel → Configure**. Después, en Vercel, desconecta y vuelve a conectar el repositorio desde **Project Settings → Git**, o crea un proyecto nuevo importando el repositorio de nuevo.
+
 ## Flujo de trabajo compartido
 
 Tras conectar el repositorio a GitHub, cada persona debe actualizar su copia antes de modificar archivos:
