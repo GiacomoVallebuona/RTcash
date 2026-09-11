@@ -12,3 +12,20 @@ for (const page of pages) {
     assert.match(html, /data-page=/);
   });
 }
+
+test('shared CSS includes tokens and responsive motion rules', async () => {
+  const css = await readFile('assets/css/styles.css', 'utf8');
+  for (const item of ['--red: #E50914', '--ink: #090909', '@media (max-width: 760px)', '@media (prefers-reduced-motion: reduce)']) {
+    assert.ok(css.includes(item));
+  }
+});
+
+test('shared script supports menu and current navigation', async () => {
+  const script = await readFile('assets/js/main.js', 'utf8');
+  for (const item of ['data-menu-toggle', 'aria-current', 'menu-open']) assert.ok(script.includes(item));
+});
+
+test('README documents pull, commit and push', async () => {
+  const readme = await readFile('README.md', 'utf8');
+  for (const command of ['git pull origin main', 'git commit', 'git push origin main']) assert.ok(readme.includes(command));
+});
