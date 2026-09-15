@@ -27,6 +27,12 @@ test('every product photograph uses the supplied Supabase image', async () => {
   assert.doesNotMatch(html, /assets\/images\/(?:pulso|atm|cajero)/i);
 });
 
+test('product imagery preserves its natural aspect ratio', async () => {
+  const css = await readFile('assets/css/styles.css', 'utf8');
+  assert.match(css, /\.hero-product>img[^}]*height:auto[^}]*object-fit:contain/);
+  assert.match(css, /\.page-product>img[^}]*height:auto[^}]*object-fit:contain/);
+});
+
 test('shared CSS defines the approved premium system and responsive motion rules', async () => {
   const css = await readFile('assets/css/styles.css', 'utf8');
   for (const item of ['--red: #E21A22', '--ink: #080808', '--paper: #F4F0E8', '@media (max-width: 760px)', '@media (prefers-reduced-motion: reduce)', '.reveal', ':focus-visible']) {
