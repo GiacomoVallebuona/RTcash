@@ -76,3 +76,10 @@ test('README preserves the collaborator pull, commit and push workflow', async (
   const readme = await readFile('README.md', 'utf8');
   for (const command of ['git pull origin main', 'git commit', 'git push origin main']) assert.ok(readme.includes(command));
 });
+
+test('Vercel deployment has an explicit static build output', async () => {
+  const packageJson = JSON.parse(await readFile('package.json', 'utf8'));
+  const vercel = JSON.parse(await readFile('vercel.json', 'utf8'));
+  assert.equal(packageJson.scripts.build, 'node scripts/build.mjs');
+  assert.equal(vercel.outputDirectory, 'dist');
+});
