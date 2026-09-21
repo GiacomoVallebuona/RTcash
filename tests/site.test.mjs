@@ -40,17 +40,11 @@ test('shared CSS defines the approved premium system and responsive motion rules
   }
 });
 
-test('home page communicates the operational risks, benefit, solution and action', async () => {
+test('home page uses the new product-led hero without the removed risks block', async () => {
   const html = await readFile('index.html', 'utf8');
-  for (const phrase of ['Riesgos que pueden afectar', 'Valida cada billete', 'Recibe, valida, resguarda', 'Solicita una cotización']) assert.ok(html.includes(phrase), `missing ${phrase}`);
-});
-
-test('home page highlights the operational cash risks without section labels', async () => {
-  const html = await readFile('index.html', 'utf8');
-  for (const phrase of ['Inseguridad ciudadana', 'Billetes y monedas falsas', 'Descuadres de caja', 'Robos internos', 'Pérdida de ventas por falta de cambio']) {
-    assert.ok(html.includes(phrase), `missing ${phrase}`);
-  }
-  assert.doesNotMatch(html, /01\s*\/\s*EL PROBLEMA|02\s*\/\s*LA SOLUCIÓN/i);
+  assert.match(html, /data-home-shader/);
+  assert.match(html, /Tu efectivo bajo control/);
+  assert.doesNotMatch(html, /Riesgos que pueden afectar|Inseguridad ciudadana|Billetes y monedas falsas/);
 });
 
 test('about page introduces exactly three project members and the concise purpose', async () => {
@@ -64,9 +58,18 @@ test('about page introduces exactly three project members and the concise purpos
 test('product page uses a compact product showcase instead of a landing-page flow', async () => {
   const html = await readFile('producto.html', 'utf8');
   assert.match(html, /product-showcase/);
-  assert.match(html, /Todo el efectivo, en un solo\s*<em>punto de control/);
+  assert.match(html, /Conoce más sobre nuestros productos/);
   assert.match(html, /Lo esencial para tu operación/);
+  assert.doesNotMatch(html, /Solicita una cotización <span|Conoce sus beneficios/);
   assert.doesNotMatch(html, /process-grid|specs-grid|example-section/);
+});
+
+test('home shader and product essentials use readable red-on-black and dark-on-light treatments', async () => {
+  const css = await readFile('assets/css/styles.css', 'utf8');
+  const shader = await readFile('assets/js/home-shader.js', 'utf8');
+  assert.match(css, /\.home-shader/);
+  assert.match(css, /\.product-essentials[^}]*color:#/);
+  assert.match(shader, /canvas\.getContext\('webgl'/);
 });
 
 test('product page keeps the essential operating benefits visible', async () => {
