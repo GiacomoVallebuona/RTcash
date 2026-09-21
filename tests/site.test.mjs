@@ -40,9 +40,9 @@ test('shared CSS defines the approved premium system and responsive motion rules
   }
 });
 
-test('home page communicates problem, benefit, solution and action', async () => {
+test('home page communicates the operational risks, benefit, solution and action', async () => {
   const html = await readFile('index.html', 'utf8');
-  for (const phrase of ['Menos efectivo expuesto', 'Valida cada billete', 'Recibe, valida, resguarda', 'Solicita una cotización']) assert.ok(html.includes(phrase), `missing ${phrase}`);
+  for (const phrase of ['Riesgos que pueden afectar', 'Valida cada billete', 'Recibe, valida, resguarda', 'Solicita una cotización']) assert.ok(html.includes(phrase), `missing ${phrase}`);
 });
 
 test('home page highlights the operational cash risks without section labels', async () => {
@@ -77,6 +77,21 @@ test('product page keeps the essential operating benefits visible', async () => 
 test('information page exposes an accessible Supabase quote form', async () => {
   const html = await readFile('informacion.html', 'utf8');
   for (const item of ['data-quote-form', 'name="name"', 'name="company"', 'name="email"', 'name="phone"', 'name="business_type"', 'name="cash_volume"', 'name="message"', 'name="website"', 'role="status"', 'assets/js/supabase-form.js']) assert.ok(html.includes(item), `missing ${item}`);
+});
+
+test('information page is focused on common questions and the quote form', async () => {
+  const html = await readFile('informacion.html', 'utf8');
+  assert.match(html, /Preguntas\s*<em>frecuentes/);
+  assert.match(html, /id="cotizacion"/);
+  assert.doesNotMatch(html, /BUEN ENCAJE|Lo que evaluamos|evaluation-grid/);
+});
+
+test('all pages provide a floating WhatsApp contact link', async () => {
+  const script = await readFile('assets/js/main.js', 'utf8');
+  const css = await readFile('assets/css/styles.css', 'utf8');
+  assert.match(script, /https:\/\/wa\.me\/51922744688/);
+  assert.match(script, /whatsapp-float/);
+  assert.match(css, /\.whatsapp-float/);
 });
 
 test('public Supabase configuration is separated from submission logic', async () => {
