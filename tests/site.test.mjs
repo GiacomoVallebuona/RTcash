@@ -45,9 +45,33 @@ test('home page communicates problem, benefit, solution and action', async () =>
   for (const phrase of ['Menos efectivo expuesto', 'Valida cada billete', 'Recibe, valida, resguarda', 'Solicita una cotización']) assert.ok(html.includes(phrase), `missing ${phrase}`);
 });
 
-test('product page documents the real operating flow and supported denominations', async () => {
+test('home page highlights the operational cash risks without section labels', async () => {
+  const html = await readFile('index.html', 'utf8');
+  for (const phrase of ['Inseguridad ciudadana', 'Billetes y monedas falsas', 'Descuadres de caja', 'Robos internos', 'Pérdida de ventas por falta de cambio']) {
+    assert.ok(html.includes(phrase), `missing ${phrase}`);
+  }
+  assert.doesNotMatch(html, /01\s*\/\s*EL PROBLEMA|02\s*\/\s*LA SOLUCIÓN/i);
+});
+
+test('about page introduces exactly three project members and the concise purpose', async () => {
+  const html = await readFile('nosotros.html', 'utf8');
+  assert.equal((html.match(/data-team-member/g) || []).length, 3);
+  assert.match(html, /Nuestro propósito/);
+  assert.match(html, /Buscamos facilitar la contabilidad, minimizar errores humanos, y proteger el efectivo de las empresas/);
+  assert.match(html, />Contáctanos\s*<span/);
+});
+
+test('product page uses a compact product showcase instead of a landing-page flow', async () => {
   const html = await readFile('producto.html', 'utf8');
-  for (const phrase of ['Recibe', 'Valida', 'Resguarda', 'Entrega', 'S/ 0.50', 'S/ 200', '7 pulgadas', '500 a 1,000']) assert.ok(html.includes(phrase), `missing ${phrase}`);
+  assert.match(html, /product-showcase/);
+  assert.match(html, /Todo el efectivo, en un solo\s*<em>punto de control/);
+  assert.match(html, /Lo esencial para tu operación/);
+  assert.doesNotMatch(html, /process-grid|specs-grid|example-section/);
+});
+
+test('product page keeps the essential operating benefits visible', async () => {
+  const html = await readFile('producto.html', 'utf8');
+  for (const phrase of ['Recibe pagos', 'Valida al recibir', 'Resguarda el dinero', 'Entrega el cambio', 'Facilita el cierre']) assert.ok(html.includes(phrase), `missing ${phrase}`);
 });
 
 test('information page exposes an accessible Supabase quote form', async () => {
@@ -70,6 +94,11 @@ test('public Supabase configuration is separated from submission logic', async (
 test('shared interaction script supports menu, active navigation and reveal animation', async () => {
   const script = await readFile('assets/js/main.js', 'utf8');
   for (const item of ['data-menu-toggle', 'aria-current', 'menu-open', 'IntersectionObserver', 'reducedMotion']) assert.ok(script.includes(item), `missing ${item}`);
+});
+
+test('hero styling keeps the ATM visible high in the initial viewport', async () => {
+  const css = await readFile('assets/css/styles.css', 'utf8');
+  assert.match(css, /\.hero-home \.hero-product\{[^}]*translateY\(-/);
 });
 
 test('README preserves the collaborator pull, commit and push workflow', async () => {
